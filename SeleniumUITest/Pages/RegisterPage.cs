@@ -3,6 +3,7 @@ using SeleniumUITest.BasePage;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -27,6 +28,8 @@ namespace SeleniumUITest.Pages
         public static readonly By confirmPass = By.CssSelector("input#ConfirmPassword");
         public static readonly By registerBtn = By.CssSelector("input#ConfirmPassword");
         public static readonly By message = By.CssSelector("div.result");
+        public static readonly By confirmEmail = By.XPath("//div[@class='header-links']/ul/li[1]/a");
+        public static readonly By logOut = By.CssSelector("a.ico-logout");
 
         /* Page Methods
          */
@@ -70,6 +73,20 @@ namespace SeleniumUITest.Pages
             return driver.FindElement(message).Text;
         }
 
+        public String GetConfirmEmail()
+        {
+            return driver.FindElement(confirmEmail).Text;
+        }
+
+        public void ClickLogOut()
+        {
+            driver.FindElement(logOut).Click();
+        }
+
+        public String GetTitle()
+        {
+            return driver.Title;
+        }
 
 
     }

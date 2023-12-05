@@ -19,16 +19,17 @@ namespace SeleniumUITest.BasePage
         public static IWebDriver driver;
 
         [TestInitialize]
-        public void Init() 
+        public void Init()
         {
             driver = new ChromeDriver();
             driver.Navigate().GoToUrl("https://demowebshop.tricentis.com/");
             driver.Manage().Window.Maximize();
         }
 
-        //public BaseClass(IWebDriver driver)
-        //{
-        //    this.driver = driver;
-        //}
+        [TestCleanup]
+        public void Cleanup()
+        {
+            driver.Close();
+        }
     }
 }

@@ -2,7 +2,7 @@
 using OpenQA.Selenium;
 using SeleniumUITest.BasePage;
 using SeleniumUITest.Pages;
-using System;
+
 
 namespace SeleniumUITest.Test
 {
@@ -18,17 +18,19 @@ namespace SeleniumUITest.Test
         {
             homePage = new HomePage(driver);
             registerPage = new RegisterPage(driver);
-
+            Assert.AreEqual(homePage.GetTitle(), "Demo Web Shop");
             homePage.ClickRegisterLink();
+            Assert.AreEqual(registerPage.GetTitle(), "Demo Web Shop. Register");
 
             registerPage.SelectMaleGender();
-            registerPage.EnterFirstName("");
-            registerPage.EnterLasttName("");
-            registerPage.EnterEmail("");
-            registerPage.EnterPassword("password");
-            registerPage.EnterConfirmPassword("");
+            registerPage.EnterFirstName("John");
+            registerPage.EnterLasttName("Doe");
+            registerPage.EnterEmail("john4doe@abcd.com");
+            registerPage.EnterPassword("passWord");
+            registerPage.EnterConfirmPassword("passWord");
             registerPage.ClickRegister();
-            registerPage.GetMessage();
+            Assert.AreEqual(registerPage.GetMessage(), "Your registration completed");
+            registerPage.ClickLogOut();
 
 
 

@@ -42,6 +42,11 @@ namespace SeleniumUITest.Pages
             driver.FindElement(logInLink).Click();
         }
 
+        public String GetTitle()
+        {
+            return driver.Title;
+        }
+
     }
 
 }
