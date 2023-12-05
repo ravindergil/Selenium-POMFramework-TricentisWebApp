@@ -22,7 +22,7 @@ namespace SeleniumUITest.BasePage
         public void Init() 
         {
             driver = new ChromeDriver();
-            driver.Navigate().GoToUrl("");
+            driver.Navigate().GoToUrl("https://demowebshop.tricentis.com/");
             driver.Manage().Window.Maximize();
         }
 

@@ -32,6 +32,15 @@ namespace SeleniumUITest.Pages
 
         /* Page Methods
          */
+        public void ClickRegisterLink()
+        {
+            driver.FindElement(registerLink).Click();
+        }
+
+        public void ClickLogInLink()
+        {
+            driver.FindElement(logInLink).Click();
+        }
 
     }
 
